@@ -90,7 +90,9 @@ export default function Hero() {
               View Projects
             </a>
             <a
-              href="#contact"
+              href="/Dinuka_Sandaruwan_New_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-4 py-2 rounded-full border border-gray-300 dark:border-white/30 text-gray-900 dark:text-white text-sm font-medium hover:bg-gray-100 dark:hover:bg-white/10 transition-colors duration-300 flex items-center gap-2 shadow-[0_0_3px_rgba(0,0,0,0.1)] dark:shadow-[0_0_3px_rgba(255,255,255,0.2)]"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>

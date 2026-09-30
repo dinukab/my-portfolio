@@ -3,6 +3,13 @@ import ScrollAnimation from '../ui/ScrollAnimation';
 
 const educationData = [
   {
+    id: 0,
+    title: "G.C.E. Advanced Level (2022/23)",
+    institution: "AM/D.S.Senanayake College",
+    period: "2020 - 2021",
+    status: "past",
+  },
+  {
     id: 1,
     title: "BSc (Hons) in Information Technology & Management",
     institution: "University of Moratuwa",

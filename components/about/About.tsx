@@ -13,12 +13,12 @@ export default function About() {
           {/* Left Side: Stats Grid */}
           <ScrollAnimation className="grid grid-cols-2 gap-4">
             <div className="bg-white dark:bg-[#111111]/50 border border-gray-200 dark:border-white/10 rounded-2xl p-6 flex flex-col justify-center transition-transform hover:-translate-y-0.125 shadow-sm dark:shadow-none">
-              <div className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">2+</div>
+              <div className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">5+</div>
               <div className="text-[10px] sm:text-xs text-gray-500 mt-2 tracking-widest uppercase font-medium">Projects</div>
             </div>
             
             <div className="bg-white dark:bg-[#111111]/50 border border-gray-200 dark:border-white/10 rounded-2xl p-6 flex flex-col justify-center transition-transform hover:-translate-y-0.125 shadow-sm dark:shadow-none">
-              <div className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">10+</div>
+              <div className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">20+</div>
               <div className="text-[10px] sm:text-xs text-gray-500 mt-2 tracking-widest uppercase font-medium">Technologies</div>
             </div>
 

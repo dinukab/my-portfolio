@@ -5,8 +5,7 @@ const projectsData = [
   {
     id: 1,
     title: "Progressive Web App for Integrated POS & E-Commerce System",
-    shortTitle: "RetailCore",
-    subtitle: "Cloud-based retail and e-commerce platform",
+    shortTitle: "OneShop",
     year: "2026",
     type: "WEB",
     description: "A single tenant progressive web application (PWA) integrating a point of sale (POS) System with an e commerce platform for Sri Lankan retailers. key features include real time inventory synchronization, multi-step checkout, role-based access control and sales analytics.",
@@ -17,18 +16,31 @@ const projectsData = [
     liveUrl2: "https://pos.allinoneshop.store/",
     bannerGradient: "from-blue-900/80 to-indigo-900/80",
     accentColor: "bg-blue-400",
+    image: "/OneShop.png",
   },
   {
     id: 2,
-    title: "Cricket Scoring Mobile App",
+    title: "Cricket Scoring Web Application",
     shortTitle: "CricHero",
-    subtitle: "Real-time match tracking application",
     year: "2026",
-    type: "MOBILE APP",
-    description: "A mobile application dedicated to scoring cricket matches in real-time. Features include ball-by-ball updates, player statistics tracking, comprehensive match summaries, and offline data sync for uninterrupted scoring on the field.",
-    technologies: ["Flutter", "Firebase", "Dart", "Provider"],
-    githubUrl: "#",
+    type: "WEB",
+    description: "A web application dedicated to scoring cricket matches in real-time. Features include ball-by-ball updates, player statistics tracking, comprehensive match summaries, and offline data sync for uninterrupted scoring on the field.",
+    technologies: ["Next.js", "Tailwind CSS", "Firebase", "JavaScript"],
+    githubUrl: "https://github.com/Yasiru-ruwantha/Cricapp.git",
     liveUrl: "#",
+    bannerGradient: "from-emerald-900/80 to-teal-900/80",
+    accentColor: "bg-emerald-400",
+  },
+  {
+    id: 3,
+    title: "Portfolio",
+    shortTitle: "Portfolio",
+    year: "2026",
+    type: "WEB",
+    description: "Full-stack server-rendered portfolio with secure admin dashboard enabling dynamic content management, real-time CV uploads, MongoDB schemas, Nodemailer SMTP API, and kinetic Lenis animations.",
+    technologies: ["Next.js", "Tailwind CSS","TypeScript"],
+    githubUrl: "https://github.com/dinukab/my-portfolio.git",
+    liveUrl: "https://dinukasbandara.vercel.app/",
     bannerGradient: "from-emerald-900/80 to-teal-900/80",
     accentColor: "bg-emerald-400",
   }
@@ -53,9 +65,19 @@ export default function Projects() {
               className="group rounded-[2rem] overflow-hidden border border-gray-200 dark:border-white/10 bg-white dark:bg-[#0f1115] transition-all hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] flex flex-col h-full"
             >
               {/* Top Banner Section */}
-              <div className={`relative p-8 h-64 bg-gradient-to-br ${project.bannerGradient} flex flex-col justify-between overflow-hidden`}>
+              <div className={`relative p-8 h-64 bg-gradient-to-br ${project.bannerGradient} flex flex-col justify-between overflow-hidden group-hover:shadow-inner transition-all duration-500`}>
+                {/* Project Image */}
+                {project.image && (
+                  <div className="absolute inset-0 z-0">
+                    <img
+                      src={project.image}
+                      alt={project.shortTitle}
+                      className="w-full h-full object-cover opacity-70 mix-blend-overlay group-hover:opacity-60 transition-all duration-700"
+                    />
+                  </div>
+                )}
                 {/* Background Pattern Overlay */}
-                <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')] [mask-image:linear-gradient(to_bottom,white,transparent)]" />
+                <div className="absolute inset-0 z-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')] [mask-image:linear-gradient(to_bottom,white,transparent)]" />
                 
                 <div className="relative flex justify-between items-start z-10">
                   <span className="text-xs text-white/90 dark:text-white/80 tracking-[0.2em] font-mono flex items-center gap-3">

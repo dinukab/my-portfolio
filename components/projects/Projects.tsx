@@ -1,7 +1,25 @@
 import React from 'react';
 import ScrollAnimation from '../ui/ScrollAnimation';
 
-const projectsData = [
+interface Project {
+  id: number;
+  title: string;
+  shortTitle: string;
+  subtitle?: string;
+  year: string;
+  type: string;
+  description: string;
+  technologies: string[];
+  githubUrl: string;
+  liveUrl: string;
+  githubUrl2?: string;
+  liveUrl2?: string;
+  bannerGradient: string;
+  accentColor: string;
+  image?: string;
+}
+
+const projectsData: Project[] = [
   {
     id: 1,
     title: "Progressive Web App for Integrated POS & E-Commerce System",
@@ -94,7 +112,7 @@ export default function Projects() {
                     {project.shortTitle}
                   </h3>
                   <p className="text-white/90 dark:text-white/80 font-sm  md:text-sm">
-                    {project.subtitle}
+                   
                   </p>
                 </div>
               </div>

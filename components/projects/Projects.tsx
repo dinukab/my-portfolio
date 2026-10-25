@@ -29,7 +29,7 @@ const projectsData: Project[] = [
     description: "A single tenant progressive web application (PWA) integrating a point of sale (POS) System with an e commerce platform for Sri Lankan retailers. key features include real time inventory synchronization, multi-step checkout, role-based access control and sales analytics.",
     technologies: ["Next.js", "Node.js", "MongoDB", "Tailwind CSS"],
     githubUrl: "https://github.com/dinukab/ecommerce_web_app.git",
-    liveUrl: "https://d3cffcic66etk7.cloudfront.net/",
+    liveUrl: "https://opendoor.allinoneshop.store/",
     githubUrl2: "https://github.com/Malze-26/OneShopPOS.git",
     liveUrl2: "https://pos.allinoneshop.store/",
     bannerGradient: "from-blue-900/80 to-indigo-900/80",
@@ -56,7 +56,7 @@ const projectsData: Project[] = [
     year: "2026",
     type: "WEB",
     description: "Full-stack server-rendered portfolio with secure admin dashboard enabling dynamic content management, real-time CV uploads, MongoDB schemas, Nodemailer SMTP API, and kinetic Lenis animations.",
-    technologies: ["Next.js", "Tailwind CSS","TypeScript"],
+    technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
     githubUrl: "https://github.com/dinukab/my-portfolio.git",
     liveUrl: "https://dinukasbandara.vercel.app/",
     bannerGradient: "from-emerald-900/80 to-teal-900/80",
@@ -77,8 +77,8 @@ export default function Projects() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {projectsData.map((project, index) => (
-            <ScrollAnimation 
-              key={project.id} 
+            <ScrollAnimation
+              key={project.id}
               delay={index * 0.15}
               className="group rounded-[2rem] overflow-hidden border border-gray-200 dark:border-white/10 bg-white dark:bg-[#0f1115] transition-all hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] flex flex-col h-full"
             >
@@ -96,7 +96,7 @@ export default function Projects() {
                 )}
                 {/* Background Pattern Overlay */}
                 <div className="absolute inset-0 z-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')] [mask-image:linear-gradient(to_bottom,white,transparent)]" />
-                
+
                 <div className="relative flex justify-between items-start z-10">
                   <span className="text-xs text-white/90 dark:text-white/80 tracking-[0.2em] font-mono flex items-center gap-3">
                     <span className={`w-2 h-2 rounded-full ${project.accentColor} shadow-[0_0_8px_currentColor]`}></span>
@@ -106,13 +106,13 @@ export default function Projects() {
                     FEATURED
                   </span>
                 </div>
-                
+
                 <div className="relative z-10">
                   <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 tracking-tight">
                     {project.shortTitle}
                   </h3>
                   <p className="text-white/90 dark:text-white/80 font-sm  md:text-sm">
-                   
+
                   </p>
                 </div>
               </div>
@@ -122,7 +122,7 @@ export default function Projects() {
                 <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-4 leading-snug">
                   {project.title}
                 </h4>
-                
+
                 <p className="text-gray-600 dark:text-gray-400 text-xs md:text-sm leading-relaxed mb-4 flex-grow">
                   {project.description}
                 </p>
@@ -131,8 +131,8 @@ export default function Projects() {
                   {/* Tech Stack Pills */}
                   <div className="flex flex-wrap gap-2.5">
                     {project.technologies.map((tech) => (
-                      <span 
-                        key={tech} 
+                      <span
+                        key={tech}
                         className="px-4 py-1.5 rounded-full border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-xs font-sm text-gray-700 dark:text-gray-300 transition-colors"
                       >
                         {tech}
@@ -143,8 +143,8 @@ export default function Projects() {
                   {/* Footer Icons */}
                   <div className="flex items-center justify-between pt-2 border-t border-gray-100 dark:border-white/5">
                     <div className="flex gap-2">
-                      <a 
-                        href={project.githubUrl} 
+                      <a
+                        href={project.githubUrl}
                         className="w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:border-gray-400 dark:hover:border-white/30 hover:bg-gray-100 dark:hover:bg-white/5 transition-all group/btn"
                         aria-label="GitHub Repository"
                         title="E-commerce Web App Repository"
@@ -154,8 +154,8 @@ export default function Projects() {
                         </svg>
                       </a>
                       {project.githubUrl2 && (
-                        <a 
-                          href={project.githubUrl2} 
+                        <a
+                          href={project.githubUrl2}
                           className="w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:border-gray-400 dark:hover:border-white/30 hover:bg-gray-100 dark:hover:bg-white/5 transition-all group/btn"
                           aria-label="POS System GitHub Repository"
                           title="POS System Repository"
@@ -166,10 +166,10 @@ export default function Projects() {
                         </a>
                       )}
                     </div>
-                    
+
                     <div className="flex gap-2">
-                      <a 
-                        href={project.liveUrl} 
+                      <a
+                        href={project.liveUrl}
                         className="text-gray-400 hover:text-gray-900 dark:text-gray-500 dark:hover:text-white transition-colors flex items-center justify-center w-10 h-10 rounded-full border border-transparent hover:bg-gray-100 dark:hover:bg-white/5"
                         aria-label="View Project"
                         title="E-commerce Web App Live"
@@ -179,8 +179,8 @@ export default function Projects() {
                         </svg>
                       </a>
                       {project.liveUrl2 && (
-                        <a 
-                          href={project.liveUrl2} 
+                        <a
+                          href={project.liveUrl2}
                           className="text-gray-400 hover:text-gray-900 dark:text-gray-500 dark:hover:text-white transition-colors flex items-center justify-center w-10 h-10 rounded-full border border-transparent hover:bg-gray-100 dark:hover:bg-white/5"
                           aria-label="View POS System"
                           title="POS System Live"

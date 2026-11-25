@@ -1,8 +1,211 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+@custom-variant light (&:where([data-theme='light'], [data-theme='light'] *));
 
-/* Base transitions */
-* {
-  @apply transition-colors duration-300;
+@theme {
+  --font-display: 'Sora', 'Manrope', 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Base transitions. Kept in the base layer so the glass panel's own transition
+   (components layer) isn't overridden by this unlayered catch-all. */
+@layer base {
+  * {
+    @apply transition-colors duration-300;
+  }
+}
+
+/* ------------------------------------------------------------------------------------
+ * Glass panel tokens: clear glass (reference: "Modern Futuristic Concept" card).
+ * - clearer, lightly tinted fill with a gentle blur, so the particles stay recognisable
+ * - bevelled rim: gradient edge ring brightest at the top-left corner, an inner top
+ *   highlight and a faint inner glow, so the sheet reads as glass with thickness
+ * - soft light streaks across the surface
+ * Fill opacities are the clearest values that still pass WCAG AA in the contrast
+ * measurement (darkest/brightest backdrop pixel behind each panel).
+ * ---------------------------------------------------------------------------------- */
+:root {
+  /* light theme: frosted panel over the hand-shadow page */
+  --glass-blur: 16px;
+  --glass-bg: rgba(255, 255, 255, 0.45);
+  --glass-bg-solid: rgba(255, 255, 255, 0.92);
+  --glass-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.08) 55%, rgba(255, 255, 255, 0.18));
+  --glass-border: rgba(255, 255, 255, 0.7);
+  --glass-border-hover: rgba(255, 255, 255, 1);
+  --glass-ring: linear-gradient(155deg, #fff 0%, rgba(255, 255, 255, 0.55) 28%, rgba(60, 45, 40, 0.14) 66%, rgba(255, 255, 255, 0.9) 100%);
+  --glass-edge: inset 0 1px 0 rgba(255, 255, 255, 0.9), inset 0 -1px 0 rgba(60, 45, 40, 0.05), inset 0 0 28px rgba(255, 255, 255, 0.3);
+  --glass-shadow: 0 20px 50px -25px rgba(60, 45, 40, 0.25);
+  --glass-streaks:
+    radial-gradient(70% 45% at 82% 10%, rgba(255, 255, 255, 0.5), transparent 70%),
+    radial-gradient(55% 35% at 15% 60%, rgba(255, 255, 255, 0.25), transparent 70%),
+    linear-gradient(118deg, transparent 38%, rgba(255, 255, 255, 0.28) 48%, transparent 58%);
+  --glass-chip-bg: rgba(255, 255, 255, 0.5);
+  --glass-chip-border: rgba(60, 45, 40, 0.22);
+  --glass-chip-hi: rgba(255, 255, 255, 0.9);
+  --glass-thumb: rgba(255, 255, 255, 0.85);
+  --glass-text: #1d1b1a;
+  --glass-text-body: #6b6460;
+  --glass-text-muted: #6b6460;
+  --glass-accent: #8a6a52;
+  --tab-inactive: rgba(29, 27, 26, 0.62);
+  --tab-active: #1d1b1a;
+}
+
+/* light theme typography (reference: wide geometric caps) */
+[data-theme='light'] {
+  --font-display: 'Montserrat', 'Syne', 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+[data-theme='light'] .font-display {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+[data-theme='light'] :is(h1, h2, h3, h4).font-display,
+[data-theme='light'] :is(h1, h2, h3, h4) .font-display {
+  font-weight: 500;
+}
+
+[data-theme='dark'] {
+  --glass-blur: 16px;
+  --glass-bg: rgba(26, 26, 30, 0.7);
+  --glass-bg-solid: rgba(24, 24, 27, 0.88);
+  --glass-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02) 55%, rgba(255, 255, 255, 0.045));
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --glass-border-hover: rgba(255, 255, 255, 0.26);
+  --glass-ring: linear-gradient(155deg, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0.16) 28%, rgba(255, 255, 255, 0.07) 66%, rgba(255, 255, 255, 0.34) 100%);
+  --glass-edge: inset 0 1px 0 rgba(255, 255, 255, 0.26), inset 0 -1px 0 rgba(255, 255, 255, 0.05), inset 0 0 28px rgba(255, 255, 255, 0.045);
+  --glass-shadow: 0 24px 50px -18px rgba(0, 0, 0, 0.62), 0 2px 6px rgba(0, 0, 0, 0.25);
+  --glass-streaks:
+    radial-gradient(70% 45% at 82% 10%, rgba(255, 255, 255, 0.09), transparent 70%),
+    radial-gradient(55% 35% at 15% 60%, rgba(255, 255, 255, 0.045), transparent 70%),
+    linear-gradient(118deg, transparent 38%, rgba(255, 255, 255, 0.04) 48%, transparent 58%);
+  --glass-chip-bg: rgba(255, 255, 255, 0.07);
+  --glass-chip-border: rgba(255, 255, 255, 0.26);
+  --glass-chip-hi: rgba(255, 255, 255, 0.16);
+  --glass-thumb: rgba(255, 255, 255, 0.1);
+  --glass-text: #f5f5f7;
+  --glass-text-body: rgba(245, 245, 247, 0.68);
+  --glass-text-muted: rgba(245, 245, 247, 0.68);
+  --glass-accent: #c9a27a;
+  --tab-inactive: rgba(238, 242, 255, 0.6);
+  --tab-active: #ffffff;
+}
+
+@layer components {
+  .glass-panel {
+    position: relative;
+    background: var(--glass-sheen), var(--glass-bg);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(115%);
+    backdrop-filter: blur(var(--glass-blur)) saturate(115%);
+    border: 1px solid var(--glass-border);
+    border-radius: 22px;
+    box-shadow: var(--glass-edge), var(--glass-shadow);
+    isolation: isolate;
+    /* lift uses `translate` (not `transform`) so it composes with Framer Motion's inline transform */
+    transition:
+      translate 300ms ease-out,
+      border-color 300ms ease-out;
+  }
+
+  /* light streaks across the surface, clipped by the radius, under the content */
+  .glass-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--glass-streaks);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* bevelled rim: gradient ring over the 1px border, brightest at the top-left corner */
+  .glass-panel::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: var(--glass-ring);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box exclude,
+      linear-gradient(#000 0 0);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .glass-panel:focus-visible,
+  .glass-panel :focus-visible {
+    outline: 2px solid #c9a27a;
+    outline-offset: 3px;
+  }
+
+  /* small frosted pill label (like the reference "Label" chip) */
+  .glass-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 11px;
+    border-radius: 9999px;
+    border: 1px solid var(--glass-chip-border);
+    background: var(--glass-chip-bg);
+    box-shadow: inset 0 1px 0 var(--glass-chip-hi);
+    color: var(--glass-text);
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .glass-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: var(--glass-text);
+  }
+  [data-theme='dark'] .glass-input {
+    background: rgba(0, 0, 0, 0.28);
+  }
+  .glass-input::placeholder {
+    color: var(--glass-text-body);
+  }
+  .glass-input:focus-visible {
+    border-color: #c9a27a;
+  }
+}
+
+/* hover: desktop (fine pointer) only */
+@media (hover: hover) and (pointer: fine) {
+  .glass-panel:not(.glass-panel-static):hover {
+    border-color: var(--glass-border-hover);
+    translate: 0 -2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-panel {
+    transition: border-color 300ms ease-out;
+  }
+  .glass-panel:not(.glass-panel-static):hover {
+    translate: none;
+  }
+}
+
+/* ---- readability fallbacks ------------------------------------------------------------- */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-panel {
+    background: var(--glass-bg-solid);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass-panel {
+    background: var(--glass-bg-solid);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
 }

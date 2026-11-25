@@ -13,17 +13,20 @@ export async function POST(request: Request) {
       );
     }
 
-    // Configure the Nodemailer transporter
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      console.error('Missing EMAIL_USER or EMAIL_PASS environment variables.');
+      return NextResponse.json(
+        { error: 'Server configuration error: Missing email credentials in hosting environment variables.' },
+        { status: 500 }
+      );
+    }
+
+    // Configure the Nodemailer transporter for Gmail
     const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 587,
-      secure: false, // use STARTTLS
+      service: 'gmail',
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
-      },
-      tls: {
-        rejectUnauthorized: false,
       },
     });
 
@@ -53,10 +56,10 @@ export async function POST(request: Request) {
       { message: 'Email sent successfully!' },
       { status: 200 }
     );
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error sending email:', error);
     return NextResponse.json(
-      { error: 'Failed to send email. Please try again later.' },
+      { error: error?.message || 'Failed to send email. Please try again later.' },
       { status: 500 }
     );
   }

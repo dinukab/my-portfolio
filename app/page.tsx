@@ -1,4 +1,5 @@
-import Navbar from '../components/navbar/Navbar';
+import GlassTabs from '../components/ui/GlassTabs';
+import ThemeToggle from '../components/ThemeToggle';
 import Hero from '../components/hero/Hero';
 import TechLoop from '../components/techloop/TechLoop';
 import About from '../components/about/About';
@@ -10,7 +11,8 @@ import Footer from '../components/footer/Footer';
 export default function Home() {
   return (
     <main>
-      <Navbar />
+      <GlassTabs />
+      <ThemeToggle />
       <Hero />
       <TechLoop />
       <About />

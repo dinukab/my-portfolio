@@ -1,11 +1,9 @@
 import React from 'react';
+import GlassPanel from '../ui/GlassPanel';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-24">
-      {/* Background glowing effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96  rounded-full blur-[100px] -z-10 " />
-      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px]  rounded-full blur-[120px] -z-10 " />
+    <section id="home" data-img="/img/hero.jpg" className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 pt-24 pb-28 md:pb-16">
 
       {/* Subtle grid pattern background */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA0KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] -z-20 opacity-50 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]" />
@@ -13,22 +11,22 @@ export default function Hero() {
       <div className="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center z-10">
 
         {/* Left Side: Content */}
-        <div className="flex flex-col items-start text-left space-y-6">
+        <GlassPanel className="animate-fade-in-up flex flex-col items-start text-left space-y-6">
 
-          <h1 className="animate-fade-in-up text-3xl md:text-6xl lg:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-[1.1]">
-            <span className="block text-gray-600 dark:text-gray-300 text-sm sm:text-md font-light">Hello, I'm</span>
-            <span className="text-gray-900 dark:text-white">
+          <h1 className="font-display text-[36px] md:text-[48px] font-semibold tracking-[-0.01em] text-(--glass-text) leading-[1.05]">
+            <span className="block font-sans text-sm sm:text-base font-light tracking-normal text-(--glass-text-body) mb-2">Hello, I&apos;m</span>
+            <span>
               Dinuka S Bandara
             </span>
           </h1>
 
           {/* Shifting Text Animation */}
-          <div className="animate-fade-in-up delay-100 h-7 sm:h-8 overflow-hidden relative w-full text-md sm:text-xl font-semibold">
+          <div className="animate-fade-in-up delay-100 h-7 sm:h-8 overflow-hidden relative w-full text-lg sm:text-2xl">
             <div className="animate-[shiftUp_8s_cubic-bezier(0.4,0,0.2,1)_infinite] flex flex-col">
-              <span className="h-8 sm:h-8 flex items-center w-fit bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-900">Problem Solver</span>
-              <span className="h-8 sm:h-8 flex items-center w-fit bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-900">UI/UX Designer</span>
-              <span className="h-8 sm:h-8 flex items-center w-fit bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-900">Full Stack Developer</span>
-              <span className="h-8 sm:h-8 flex items-center w-fit bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-900">Problem Solver</span>
+              <span className="h-8 sm:h-8 flex items-center w-fit font-display font-light text-(--glass-accent)">Problem Solver</span>
+              <span className="h-8 sm:h-8 flex items-center w-fit font-display font-light text-(--glass-accent)">UI/UX Designer</span>
+              <span className="h-8 sm:h-8 flex items-center w-fit font-display font-light text-(--glass-accent)">Full Stack Developer</span>
+              <span className="h-8 sm:h-8 flex items-center w-fit font-display font-light text-(--glass-accent)">Problem Solver</span>
             </div>
           </div>
 
@@ -55,7 +53,7 @@ export default function Hero() {
             .delay-500 { animation-delay: 500ms; }
           `}} />
 
-          <p className="animate-fade-in-up delay-200 text-sm text-gray-600 dark:text-gray-400 max-w-lg leading-relaxed mt-4">
+          <p className="animate-fade-in-up delay-200 text-sm text-(--glass-text-body) max-w-lg leading-relaxed mt-4">
             IT undergraduate at University of Moratuwa, building clean and fast web applications. Passionate about full-stack development and exploring Cybersecurity.
           </p>
 
@@ -99,13 +97,13 @@ export default function Hero() {
               CV
             </a>
           </div>
-        </div>
+        </GlassPanel>
 
         {/* Right Side: Profile Image */}
         <div className="animate-fade-in-up delay-500 relative flex justify-center lg:justify-end items-center mt-10 lg:mt-0">
           <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 group">
             {/* Glowing background blob */}
-            <div className="absolute inset-0 bg-blue-300/30 dark:bg-blue-600/20 rounded-full blur-[60px] -z-10 group-hover:bg-blue-400/40 dark:group-hover:bg-blue-500/30 transition-colors duration-500" />
+            <div className="absolute inset-0 bg-[#e8b56a]/15 rounded-full blur-[60px] -z-10 group-hover:bg-[#e8b56a]/25 transition-colors duration-500" />
             
             {/* Image Container */}
             <div className="relative w-full h-full rounded-[2rem] overflow-hidden border border-gray-200 dark:border-white/10 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02] group-hover:border-gray-300 dark:group-hover:border-white/20">
@@ -117,8 +115,8 @@ export default function Hero() {
             </div>
             
             {/* Decorative corner accents */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 border-t-2 border-r-2 border-blue-500/50 rounded-tr-[2.5rem] -z-20 transition-all duration-500 group-hover:translate-x-2 group-hover:-translate-y-2 opacity-50" />
-            <div className="absolute -bottom-4 -left-4 w-24 h-24 border-b-2 border-l-2 border-blue-500/50 rounded-bl-[2.5rem] -z-20 transition-all duration-500 group-hover:-translate-x-2 group-hover:translate-y-2 opacity-50" />
+            <div className="absolute -top-4 -right-4 w-24 h-24 border-t-2 border-r-2 border-[#e8b56a]/40 rounded-tr-[2.5rem] -z-20 transition-all duration-500 group-hover:translate-x-2 group-hover:-translate-y-2 opacity-50" />
+            <div className="absolute -bottom-4 -left-4 w-24 h-24 border-b-2 border-l-2 border-[#e8b56a]/40 rounded-bl-[2.5rem] -z-20 transition-all duration-500 group-hover:-translate-x-2 group-hover:translate-y-2 opacity-50" />
           </div>
         </div>
 

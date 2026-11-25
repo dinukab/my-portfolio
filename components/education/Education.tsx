@@ -1,5 +1,6 @@
 import React from 'react';
 import ScrollAnimation from '../ui/ScrollAnimation';
+import GlassPanel from '../ui/GlassPanel';
 
 const educationData = [
   {
@@ -27,10 +28,7 @@ const educationData = [
 
 export default function Education() {
   return (
-    <section id="education" className="relative py-12 px-6 bg-transparent overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-300/30 dark:bg-purple-900/5 rounded-full blur-[150px] -z-10 pointer-events-none" />
-
+    <section id="education" data-img="/img/terrain.jpg" className="relative py-12 px-6 bg-transparent overflow-hidden">
       <div className="max-w-4xl mx-auto">
         <ScrollAnimation className="text-left mb-16">
           <h3 className="text-xl md:text-xl font-bold text-gray-900 dark:text-white">Education</h3>
@@ -47,7 +45,7 @@ export default function Education() {
               const isLeft = index % 2 !== 0; // index 0 (first item) will be on the right, index 1 on the left
 
               return (
-                <ScrollAnimation key={item.id} delay={index * 0.2} className={`flex items-center justify-between w-full ${isLeft ? 'flex-row-reverse' : ''}`}>
+                <div key={item.id} className={`flex items-center justify-between w-full ${isLeft ? 'flex-row-reverse' : ''}`}>
                   
                   {/* Empty space for the opposite side */}
                   <div className="hidden md:block w-5/12"></div>
@@ -63,7 +61,7 @@ export default function Education() {
 
                   {/* Card Content */}
                   <div className="w-full md:w-5/12 relative group">
-                    <div className={`bg-white dark:bg-[#111111] border border-gray-200 dark:border-white/5 rounded-xl p-5 hover:border-gray-300 dark:hover:border-white/10 transition-all shadow-sm dark:shadow-lg ${isLeft ? 'ml-auto text-right' : 'text-left'}`}>
+                    <GlassPanel reveal={index > 0 ? index * 0.2 : true} className={isLeft ? 'ml-auto text-right' : 'text-left'}>
                       {item.status === 'skeleton' ? (
                         <>
                           <div className={`flex flex-col gap-3 mb-3 ${isLeft ? 'items-end' : 'items-start'}`}>
@@ -77,22 +75,22 @@ export default function Education() {
                       ) : (
                         <>
                           <div className={`flex flex-col gap-1 mb-2 ${isLeft ? 'items-end' : 'items-start'}`}>
-                            <span className="inline-block px-2 py-0.5 bg-blue-50 dark:bg-white/5 border border-blue-200 dark:border-white/10 rounded-md text-[10px] font-mono text-blue-700 dark:text-blue-400 whitespace-nowrap">
+                            <span className="glass-badge font-mono">
                               {item.period}
                             </span>
-                            <h4 className="text-sm font-semibold text-gray-900 dark:text-white transition-colors">
+                            <h4 className="text-sm font-semibold leading-snug tracking-[-0.01em] text-(--glass-text)">
                               {item.title}
                             </h4>
                           </div>
-                          <h5 className={`text-xs text-gray-600 dark:text-gray-400 font-medium flex gap-1 ${isLeft ? 'justify-end' : 'justify-start'}`}>
+                          <h5 className={`text-xs text-(--glass-text-body) font-medium flex gap-1 ${isLeft ? 'justify-end' : 'justify-start'}`}>
                             {item.institution}
                           </h5>
                         </>
                       )}
-                    </div>
+                    </GlassPanel>
                   </div>
 
-                </ScrollAnimation>
+                </div>
               );
             })}
           </div>
